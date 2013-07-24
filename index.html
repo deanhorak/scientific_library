@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scientific library : The Virtual Brain scientific library. " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Scientific library</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/the-virtual-brain/scientific_library">View on GitHub</a>
+
+          <h1 id="project_title">Scientific library</h1>
+          <h2 id="project_tagline">The Virtual Brain scientific library. </h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/the-virtual-brain/scientific_library/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/the-virtual-brain/scientific_library/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>THE VIRTUAL BRAIN SCIENTIFIC LIBRARY</p>
+
+<p>The Virtual Brain project (TVB project) has the purpose of offering some modern tools to the Neurosciences community, for computing, simulating and analyzing functional and structural data of human brains.</p>
+
+<p>TVB comes in two major forms for code-contributors: as a light-weight Python library, or plugged in a framework (including Web interface and Persistence of data). Depending on your needs and resources, you could use any of the two available options for contributing and testing new code.
+"The Virtual Brain Scientific Library" is a light-weight, stand-alone Python library that contains all the needed packages in order to run simulations and analysis on data without the need for the entire TVB Framework. This implies that no storage will be provided so data from each session will be lost on close. You need to either persist it yourself in some manner or use the full TVBFramework where HDF5 / database storage is provided as default. 
+The full TVBFramework (Web and Console interface, including contribution scripts) is available at <a href="http://www.thevirtualbrain.org/">http://www.thevirtualbrain.org/</a> </p>
+
+<p>The interaction with TVB-source-code is recommended for advanced users only, for which the concepts proposed by TVB are known and understood, and which also have some programming knowledge.</p>
+
+<p>The library contains the following packages: basic, datatypes, simulator and analyzers. The dependencies between these packages can be seen in tvb-package-diagram.jpg . Following is a short description of each of these packages:</p>
+
+<ul>
+<li>tvb.basic </li>
+</ul><p>This package is the base of TVB and holds sub-packages that are used by most of the other packages like logging, global settings and the TVB traits package. You should rarely (if at all) need to change code in this package, and should know exactly what you are doing before attempting to change anything from here. </p>
+
+<ul>
+<li>tvb.datatypes</li>
+</ul><p>The simulator and analyzers packages (as well as uploaders and visualizers in TVB Framework) will need to have a common "language" in order to work with the same data. In TVB architecture, that "common language" is represented by Data Types. TVB Data Types declarations are located in this package. </p>
+
+<p>Most of the datatypes here have a diamond like inheritance structure of the following form:</p>
+
+<pre><code>                        DataTypeData
+                             |
+                            / \\
+           DataTypeFramework   DataTypeScientific
+                            \ /
+                             |
+                          DataType
+</code></pre>
+
+<p>The DataTypeData holds the actual structure of the datatype. DataTypeScientific holds any methods required from a scientific point of view. DataTypeFramework should just be ignored from a library user point of view as it holds framework related methods and will be removed altogether in the near future. DataType just brings all the above together and is the class you should actually use in your code.</p>
+
+<ul>
+<li>tvb.simulator</li>
+</ul><p>The Simulation Component is the most important component in The Virtual Brain solution, as it is the component responsible for all the scientific computation related to brain models and data. </p>
+
+<p>You can find various demos of using the simulator under tvb/simulator/demos as well as some nice tutorials under tvb/simulator/doc/tutorials/ .</p>
+
+<ul>
+<li>tvb.analyzers</li>
+</ul><p>Holds modules that can run various analysis of data resulted from the simulator. There are a few demos which use the PCA analyzer like tvb/simulator/demos/pca_analyse_view_region and tvb/simulator/demos/pca_analyse_view_surface .
+TVB is not strong in doing data analysis, we barely have a minimum set of analyzers for immediate needs.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Scientific library maintained by <a href="https://github.com/the-virtual-brain">the-virtual-brain</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
